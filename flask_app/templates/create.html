@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Add Item</title>
+</head>
+<body>
+    <div class="container mx-auto mt-5 p-3 col-6 font-monospace fw-bold d-flex justify-content-between border border-black d-flex justify-content-center rounded-3 col-4" style="box-shadow: 4px 10px">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/item" method="POST">
+            <label for="item_name">Item:</label>
+            <input type="text" name="item_name">
+            <input class="btn border border-black" style="box-shadow: 1px 2px;" type="submit" value="Add item">
+        </form>
+        <div>
+            <button class="btn border border-black" style="box-shadow: 1px 2px;"><a style="text-decoration: none;" class="text-black" href="/dashboard">Dashboard</a></button>
+            <button class="btn border border-black" style="box-shadow: 1px 2px;"><a style="text-decoration: none;" class="text-black" href="/logout">Logout</a></button>
+        </div>
+    </div>
+</body>
+</html>
